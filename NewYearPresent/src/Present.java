@@ -22,7 +22,7 @@ public class Present {
 		return weight;
 	}
 
-	public List<Sweet> getSortedByPrice() {
+	public List<Sweet> getSortedByWeight() {
 		List<Sweet> sorted = sweetList;
 		Collections.sort(sorted);
 		return sorted;

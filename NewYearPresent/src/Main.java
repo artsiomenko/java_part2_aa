@@ -26,7 +26,7 @@ public class Main {
                
         System.out.println(present.getWeight());
         System.out.println("Sorted by weight:");
-        for (Sweet s : present.getSortedByPrice()) {
+        for (Sweet s : present.getSortedByWeight()) {
         	System.out.println(s);
         }  
         System.out.println("Sorted by name:");
