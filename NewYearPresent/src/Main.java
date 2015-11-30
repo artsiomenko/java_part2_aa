@@ -10,9 +10,7 @@ public class Main {
         Caramel caramel = new Caramel();
         caramel.setName("Alenka");
         caramel.setWeight(60);
-      
-        present.addSweet(caramel);
-                
+                             
         Chocolate chocolate = new Chocolate();
         chocolate.setName("Snow");
         chocolate.setWeight(5);
@@ -20,7 +18,8 @@ public class Main {
         Chocolate chocolate1 = new Chocolate();
         chocolate1.setName("Nuts");
         chocolate1.setWeight(80);
-
+        
+        present.addSweet(caramel);
         present.addSweet(chocolate);
         present.addSweet(chocolate1);
                
