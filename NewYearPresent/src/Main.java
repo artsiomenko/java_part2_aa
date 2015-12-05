@@ -17,13 +17,17 @@ public class Main {
         
         Chocolate chocolate1 = new Chocolate();
         chocolate1.setName("Nuts");
-        chocolate1.setWeight(80);
+        chocolate1.setWeight(-1);
         
         present.addSweet(caramel);
         present.addSweet(chocolate);
         present.addSweet(chocolate1);
                
-        System.out.println(present.getWeight());
+        try {
+			System.out.println(present.getWeight());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         System.out.println("Sorted by weight:");
         for (Sweet s : present.getSortedByWeight()) {
         	System.out.println(s);

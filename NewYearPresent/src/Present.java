@@ -3,18 +3,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import Mistake.MyException;
 import candies.Sweet;
 
-public class Present {
+public class Present  {
+
+	
 	private List<Sweet> sweetList = new ArrayList<Sweet>();
 
 	public void addSweet(Sweet sweet) {
 		this.sweetList.add(sweet);
 	}
 
-	public int getWeight() {
+	public int getWeight() throws Exception {
 		int weight = 0;
-
+        if(weight < 0)
+        	throw new MyException(weight);
+            System.out.println("Weight can't < 0");
 		for (Sweet s : sweetList) {
 			weight += s.getWeight();
 		}
@@ -31,14 +36,14 @@ public class Present {
 	public List<Sweet> getSortedByName() {
 		List<Sweet> sorted = sweetList;
 		Collections.sort(sorted, new Comparator<Sweet>() {
-			
+
 			public int compare(final Sweet sweet1, final Sweet sweet2) {
 				return sweet1.getName().compareTo(sweet2.getName());
 			}
 		});
 		return sorted;
 	}
-	
+
 	public Sweet getSweet(int weight, String name) {
 		Sweet sweet = null;
 
@@ -51,6 +56,5 @@ public class Present {
 
 		return sweet;
 	}
-	
-}
 
+}
