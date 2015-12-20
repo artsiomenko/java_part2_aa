@@ -1,10 +1,16 @@
 import candies.Caramel;
 import candies.Chocolate;
 import candies.Sweet;
+import importDataBase.ConnectDataBase;
+import importFiles.SweetDataFromTXT;
+import importFiles.SweetDataFromXML;
+import mistake.LessThanNullException;
 
 public class Main {
 
     public static void main(String[] args) {
+    	
+    	
         Present present = new Present();
 
         Caramel caramel = new Caramel();
@@ -17,15 +23,26 @@ public class Main {
         
         Chocolate chocolate1 = new Chocolate();
         chocolate1.setName("Nuts");
-        chocolate1.setWeight(-1);
+        chocolate1.setWeight(15);
         
         present.addSweet(caramel);
         present.addSweet(chocolate);
         present.addSweet(chocolate1);
+        for (Sweet sweet: new SweetDataFromTXT().getSweetFromSource()){
+        	present.addSweet(sweet);
+        }
+        
+        for (Sweet sweet: ConnectDataBase.loadSweets()){
+        	present.addSweet(sweet);
+        }
+        
+        for (Sweet sweet: SweetDataFromXML.getSweetFromXML()){
+        	present.addSweet(sweet);
+        }
                
         try {
 			System.out.println(present.getWeight());
-		} catch (Exception e) {
+		} catch (LessThanNullException e) {
 			e.printStackTrace();
 		}
         System.out.println("Sorted by weight:");
@@ -36,11 +53,11 @@ public class Main {
         System.out.println(present.getSortedByName());
         
         System.out.println("Found candy by name:");
-        Sweet found = present.getSweet(5, "Snow");
+        Sweet found = present.getSweetFromPresent(5, "Snow");
         if (found != null)
         	System.out.println(found);
         else
         	System.out.println("Sweet not found.");
     }
-
+    
 }

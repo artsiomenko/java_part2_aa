@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<sweets>
+	<sweet id="22">
+		<name>Sorvanez1</name>
+		<weight>2345</weight>
+	</sweet>
+	<sweet id="32">
+		<name>Sorvanez2</name>
+		<weight>2344</weight>
+	</sweet>
+</sweets>

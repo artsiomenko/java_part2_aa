@@ -1,8 +1,16 @@
 package candies;
 
-public abstract class Sweet implements Comparable<Sweet> {
+public class Sweet implements Comparable<Sweet> {
 	private String name;// name of sweets
 	private int weight;// weight of a one sweet
+	
+	public Sweet() {
+	}
+	
+	public Sweet(String name, int weight) {
+		this.name = name;
+		this.weight = weight;
+	}
 
 	public String getName() {
 		return name;
